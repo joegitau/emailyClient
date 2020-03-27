@@ -14,6 +14,7 @@
             >
             <div class="invalid-feedback">
               <span *ngIf="signUpForm.get('username').errors?.required">Username is required.</span>
+              <span *ngIf="signUpForm.get('username').errors?.pattern">Should contain only alphanumeric characters (a - z / 0 - 9).</span>
               <span *ngIf="signUpForm.get('username').errors?.minlength">Must have min length of 3 characters.</span>
             </div>
           </div>
