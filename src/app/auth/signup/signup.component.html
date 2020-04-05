@@ -16,6 +16,7 @@
               <span *ngIf="signUpForm.get('username').errors?.required">Username is required.</span>
               <span *ngIf="signUpForm.get('username').errors?.pattern">Should contain only alphanumeric characters (a - z / 0 - 9).</span>
               <span *ngIf="signUpForm.get('username').errors?.minlength">Must have min length of 3 characters.</span>
+              <span *ngIf="signUpForm.get('username').errors?.uniqueUser">Username is not available.</span>
             </div>
           </div>
           <div class="mb-4" formGroupName='passwordGroup'>
