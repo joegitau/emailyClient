@@ -15,6 +15,6 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   isUsernameAvailable(username: string): Observable<UsernameRes> {
-    return this.http.post<UsernameRes>('https://api.angular-email.com/auth/username', {username});
+    return this.http.post<UsernameRes>(`${this.BASE_URL}/username`, {username});
   }
 }

@@ -1,1 +1,14 @@
-<p>input works!</p>
+<div class="row mb-2">
+  <!-- <label>{{ label }}</label> -->
+  <input type="text" class="form-control"
+         [formControl]="control"
+         [placeholder]="placeholder"
+         [ngClass]="{ 'is-invalid': (control.touched || control.dirty) && !control.valid }"
+  >
+  <div class="invalid-feedback">
+    <span *ngIf="control.errors?.required">{{ label }} is required</span>
+    <span *ngIf="control.errors?.pattern">Should contain only alphanumeric characters (a - z / 0 - 9).</span>
+    <span *ngIf="control.errors?.minlength">Must have min length of 3 characters.</span>
+    <span *ngIf="control.errors?.nonUniqueUsername">Username is not available.</span>
+  </div>
+</div>
