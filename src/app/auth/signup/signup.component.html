@@ -6,14 +6,14 @@
           <small>Create an account</small>
         </div>
         <form [formGroup]='signUpForm' (ngSubmit)='signUp()'>
-          <app-input label="Username"
+          <app-input label="Username" inputType="inputType"
                      placeholder="username"
                      [control]="signUpForm.get('username')"
           ></app-input>
 
           <div class="mb-4" formGroupName='passwordGroup'>
             <div class="row mb-2">
-              <input type="text" class="form-control" placeholder="password" formControlName='password'
+              <input type="password" class="form-control" placeholder="password" formControlName='password'
                 [ngClass]="{ 'is-invalid': signUpForm.get('passwordGroup').errors || (
                               (signUpForm.get('passwordGroup.password').touched ||
                                signUpForm.get('passwordGroup.password').dirty)
@@ -27,7 +27,7 @@
               </div>
             </div>
             <div class="row mb-2">
-              <input type="text" class="form-control" placeholder="verify password" formControlName='confirmPassword'
+              <input type="password" class="form-control" placeholder="verify password" formControlName='confirmPassword'
                 [ngClass]="{ 'is-invalid': signUpForm.get('passwordGroup').errors || (
                               (signUpForm.get('passwordGroup.confirmPassword').touched ||
                                signUpForm.get('passwordGroup.confirmPassword').dirty)

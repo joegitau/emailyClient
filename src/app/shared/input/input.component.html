@@ -1,6 +1,6 @@
 <div class="row mb-2">
   <!-- <label>{{ label }}</label> -->
-  <input type="text" class="form-control"
+  <input [type]="inputType" class="form-control"
          [formControl]="control"
          [placeholder]="placeholder"
          [ngClass]="{ 'is-invalid': (control.touched || control.dirty) && !control.valid }"
