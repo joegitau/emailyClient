@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AsyncValidator, AbstractControl, ValidationErrors } from '@angular/forms';
+import { AsyncValidator, AbstractControl } from '@angular/forms';
 import { map, catchError, debounceTime, flatMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
@@ -13,13 +13,16 @@ export class UniqueUsername implements AsyncValidator {
     const { value } = c;
 
     return this.authService.isUsernameAvailable(value).pipe(
-      map(value => {
-        if (value.available) return null;
+      map(val => {
+        if (val.available) {
+          return null;
+        }
       }),
       catchError(err => {
-        console.log(err);
-        if (err.error.username) return of({nonUniqueUsername: true});
-        return of({noConnection: true})
+        if (err.error.username) {
+          return of({nonUniqueUsername: true});
+        }
+        return of({noConnection: true});
       })
     );
   }

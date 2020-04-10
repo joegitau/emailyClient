@@ -5,12 +5,11 @@
         <div class="text-center text-muted mb-4">
           <small>Create an account</small>
         </div>
-        <form [formGroup]='signUpForm' (ngSubmit)='signUp()'>
+        <form [formGroup]='signUpForm' (ngSubmit)='onSignup()'>
           <app-input label="Username" inputType="inputType"
                      placeholder="username"
                      [control]="signUpForm.get('username')"
           ></app-input>
-
           <div class="mb-4" formGroupName='passwordGroup'>
             <div class="row mb-2">
               <input type="password" class="form-control" placeholder="password" formControlName='password'
@@ -27,23 +26,27 @@
               </div>
             </div>
             <div class="row mb-2">
-              <input type="password" class="form-control" placeholder="verify password" formControlName='confirmPassword'
+              <input type="password" class="form-control" placeholder="verify password" formControlName='passwordConfirmation'
                 [ngClass]="{ 'is-invalid': signUpForm.get('passwordGroup').errors || (
-                              (signUpForm.get('passwordGroup.confirmPassword').touched ||
-                               signUpForm.get('passwordGroup.confirmPassword').dirty)
-                               && !signUpForm.get('passwordGroup.confirmPassword').valid
+                              (signUpForm.get('passwordGroup.passwordConfirmation').touched ||
+                               signUpForm.get('passwordGroup.passwordConfirmation').dirty)
+                               && !signUpForm.get('passwordGroup.passwordConfirmation').valid
                               )
                            }"
               >
               <div class="invalid-feedback">
-                <span *ngIf="signUpForm.get('passwordGroup.confirmPassword').errors?.required">Please confirm your password.</span>
+                <span *ngIf="signUpForm.get('passwordGroup.passwordConfirmation').errors?.required">Please confirm your password.</span>
                 <span *ngIf="signUpForm.get('passwordGroup').errors?.match">Passwords don't match.</span>
               </div>
             </div>
-            <div class="text-center mt-4">
-              <button class="btn btn-success" type="submit" [disabled]="!signUpForm.valid">Create account</button>
-            </div>
           </div>
+          <div class="text-center mt-4">
+            <button class="btn btn-success" type="submit" [disabled]="!signUpForm.valid">Create account</button>
+          </div>
+          <!-- <div class="invalid-feedback">
+            <span *ngIf="signUpForm.errors?.noConnection">Couldn't connect to the server.</span>
+            <span *ngIf="signUpForm.errors?.noConnection">Couldn't signup, try again later.</span>
+          </div> -->
         </form>
       </div>
     </div>
@@ -122,7 +125,7 @@
                 type="text"
                 class="form-control"
                 placeholder="confirm password"
-                formControlName="confirmPassword"
+                formControlName="passwordConfirmation"
                 [ngClass]="{
                   'is-invalid':
                     (signUpForm.get('emailGroup.password').touched ||

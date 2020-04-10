@@ -1,13 +1,16 @@
 import { AbstractControl } from '@angular/forms';
 
 export function passwordMatcher(c: AbstractControl): { [key: string]: boolean } | null {
-  const { password, confirmPassword } = c.value;
+  const { password, passwordConfirmation } = c.value;
 
-  if (password.pristine || confirmPassword.pristine) return null;
+  if (password.pristine || passwordConfirmation.pristine) {
+    return null;
+  }
 
-  if (password === confirmPassword) return null;
-
-  return { 'match': true };
+  if (password === passwordConfirmation) {
+    return null;
+  }
+  return { match: true };
 }
 
 // alternate validator
@@ -15,9 +18,9 @@ export function passwordMatcher(c: AbstractControl): { [key: string]: boolean } 
 
 // export class PasswordMatcher implements Validator {
 //   validate(fg: FormGroup): {[key: string]: boolean } | null  {
-//     const { password, confirmPassword } = fg.value;
+//     const { password, passwordConfirmation } = fg.value;
 
-//     if (password === confirmPassword) return null;
+//     if (password === passwordConfirmation) return null;
 //     return { match: true}
 //   }
 // }

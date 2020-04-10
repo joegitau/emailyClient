@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 
 import { passwordMatcher } from 'src/app/utils/password-matcher';
 import { UniqueUsername } from 'src/app/utils/unique-username';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +13,10 @@ import { UniqueUsername } from 'src/app/utils/unique-username';
 export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private uniqueUsername: UniqueUsername) { }
+  constructor(private fb: FormBuilder,
+              private uniqueUsername: UniqueUsername,
+              private authService: AuthService) {
+  }
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
@@ -23,12 +27,29 @@ export class SignupComponent implements OnInit {
       ],
       passwordGroup: this.fb.group({
         password: ['', [Validators.required, Validators.minLength(4)]],
-        confirmPassword: ['', [Validators.required]]
+        passwordConfirmation: ['', [Validators.required]]
       }, {validator: passwordMatcher})
     });
   }
 
-  signUp() {
-    console.log(this.signUpForm.value);
+  onSignup() {
+    if (!this.signUpForm.valid) {
+      return;
+    }
+
+    const userCreds = {
+      username: this.signUpForm.value.username,
+      password: this.signUpForm.value.passwordGroup.password,
+      passwordConfirmation: this.signUpForm.value.passwordGroup.passwordConfirmation
+    }
+
+    this.authService.signup(userCreds).subscribe(
+      res => res.username,
+      error => {
+        if (error.status === 0) {
+          this.signUpForm.setErrors(error.message);
+        }
+      }
+    );
   }
 }
