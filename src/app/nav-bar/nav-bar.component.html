@@ -2,15 +2,18 @@
   <h5 class="my-0 mr-md-auto font-weight-normal">
     <a class="brand" routerLink="/">EmailyClient</a>
   </h5>
-  <ng-container *ngIf="signedin$">
+  <ng-container *ngIf="signedin">
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark" routerLink="/inbox" routerLinkActive="active">Inbox</a>
       <a class="p-2 text-dark" routerLink="/signout" routerLinkActive="active">Sign Out</a>
     </nav>
   </ng-container>
-  <ng-container *ngIf="!signedin$">
+  <ng-container *ngIf="!signedin">
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark" routerLink="/" routerLinkActive="active">Sign In</a>
+      <a class="p-2 text-dark" routerLink="/"
+                              [routerLinkActiveOptions]="{ exact: true }"
+                              routerLinkActive="active">
+        Sign In</a>
       <a class="btn btn-sm btn-outline-primary" routerLink="/signup" routerLinkActive="active">Sign Up</a>
     </nav>
   </ng-container>

@@ -10,7 +10,7 @@ import { UsernameRes, SignupCreds, SignupRes } from './auth-schema';
 export class AuthService {
   private BASE_URL = 'https://api.angular-email.com/auth';
 
-  signedin = new BehaviorSubject(false);
+  signedin$ = new BehaviorSubject(false);
 
   constructor(private http: HttpClient) { }
 
@@ -21,7 +21,7 @@ export class AuthService {
   signup(credentials: SignupCreds): Observable<SignupRes> {
     return this.http.post<SignupRes>(`${this.BASE_URL}/signup`, credentials)
       .pipe(
-        tap(() => this.signedin.next(true))
+        tap(() => this.signedin$.next(true))
       );
   }
 

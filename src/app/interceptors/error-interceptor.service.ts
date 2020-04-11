@@ -7,15 +7,12 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ErrorInterceptorService implements HttpInterceptor {
-
-  constructor() { }
-
   handleError(error: HttpErrorResponse) {
     return throwError(error);
   }
 
-  intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(httpRequest).pipe(
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(req).pipe(
       retry(2),
       catchError(this.handleError)
     );
