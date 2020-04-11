@@ -47,8 +47,9 @@ export class SignupComponent implements OnInit {
       res => res.username,
       error => {
         if (error.status === 0) {
-          this.signUpForm.setErrors(error.message);
+          this.signUpForm.setErrors({noConnection: true});
         }
+        this.signUpForm.setErrors({unknownError: true})
       }
     );
   }
