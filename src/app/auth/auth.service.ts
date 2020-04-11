@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 interface UsernameRes {
   available: boolean;
@@ -26,16 +25,11 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   isUsernameAvailable(username: string): Observable<UsernameRes> {
-    return this.http.post<UsernameRes>(`${this.BASE_URL}/username`, {username})
-    .pipe(catchError(this.handleError));
+    return this.http.post<UsernameRes>(`${this.BASE_URL}/username`, {username});
   }
 
   signup(credentials: SignupCreds): Observable<SignupRes> {
-    return this.http.post<SignupRes>(`${this.BASE_URL}/signup`, credentials)
-      .pipe(catchError(this.handleError));
+    return this.http.post<SignupRes>(`${this.BASE_URL}/signup`, credentials);
   }
 
-  handleError(error: HttpErrorResponse) {
-    return throwError(error);
-  }
 }
