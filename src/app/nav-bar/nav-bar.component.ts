@@ -8,11 +8,14 @@ import { AuthService } from '../auth/auth.service';
 })
 export class NavBarComponent implements OnInit {
   signedin = false;
+  user: any;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authService.signedin$.subscribe(status => this.signedin = status);
+
+    this.authService.checkAuth().subscribe(() => ({}));
   }
 
 }

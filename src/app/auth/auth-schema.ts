@@ -11,3 +11,8 @@ export interface SignupCreds {
 export interface SignupRes {
   username: string;
 }
+
+export interface SignedinRes {
+  authenticated: boolean;
+  username: string;
+}
