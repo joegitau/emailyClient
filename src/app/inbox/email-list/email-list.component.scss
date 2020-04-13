@@ -1,0 +1,15 @@
+@import '../../app.component.scss';
+
+.active {
+  background: $secondary-bg;
+  border-color: $secondary-bg;;
+}
+
+.list-group-item {
+
+  &:hover {
+    background: $primary-bg;
+    border-color: $primary-bg;
+    color: #fff;
+  }
+}
