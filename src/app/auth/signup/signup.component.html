@@ -40,122 +40,15 @@
               </div>
             </div>
           </div>
-          <div class="text-center mt-4">
-            <button class="btn btn-success" type="submit" [disabled]="!signUpForm.valid">Create account</button>
-          </div>
-
-          <div class="invalid-feedback">
+          <div class="text-center mt-3 form-errors" *ngIf="signUpForm?.errors">
             <span *ngIf="signUpForm.errors?.noConnection">Couldn't connect to the server.</span>
             <span *ngIf="signUpForm.errors?.unknownError">Couldn't signup, try again later.</span>
+          </div>
+          <div class="text-center mt-4">
+            <button class="btn btn-success" type="submit" [disabled]="!signUpForm.valid">Create account</button>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="row mt-5">
-  <div class="col-md-4 offset-md-4">
-    <div class="card">
-      <div class="card-body px-lg-5 py-lg-5">
-        <div class="text-center text-muted mb-4">
-          <small>Create an Account</small>
-        </div>
-        <form novalidate [formGroup]="signUpForm" (ngSubmit)="signUp()">
-          <div class="row mb-2">
-            <input
-              type="text"
-              placeholder="username"
-              class="form-control"
-              fornControlName="username"
-              [ngClass]="{
-                'is-invalid':
-                  (signUpForm.get('username').touched ||
-                    signUpForm.get('username').dirty) &&
-                  !signUpForm.get('username').valid
-              }"
-            />
-            <div class="invalid-feedback">
-              <span *ngIf="signUpForm.get('username').errors?.required"
-                >Username is required.</span
-              >
-              <span *ngIf="signUpForm.get('username').errors?.minlength"
-                >Username requires a min length of 4 characters.</span
-              >
-            </div>
-          </div>
-          <div formGroupName="passwordGroup">
-            <div class="row mb-2">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="password"
-                formControlName="password"
-                [ngClass]="{
-                  'is-invalid':
-                    signUpForm.get('emailGroup').errors ||
-                    ((signUpForm.get('emailGroup.password').touched ||
-                      signUpForm.get('emailGroup.password').dirty) &&
-                      !signUpForm.get('emailGroup.password').valid)
-                }"
-              />
-              <div class="invalid-feedback">
-                <span
-                  *ngIf="signUpForm.get('emailGroup.password').errors?.required"
-                  >Password is required.</span
-                >
-                <span
-                  *ngIf="
-                    signUpForm.get('emailGroup.password').errors?.minlength
-                  "
-                  >Password requires a min of 4 characters.</span
-                >
-              </div>
-            </div>
-            <div class="row mb-4">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="confirm password"
-                formControlName="passwordConfirmation"
-                [ngClass]="{
-                  'is-invalid':
-                    (signUpForm.get('emailGroup.password').touched ||
-                      signUpForm.get('emailGroup.password').dirty) &&
-                    !signUpForm.get('emailGroup.password').valid
-                }"
-              />
-              <div class="invalid-feedback">
-                <span
-                  *ngIf="signUpForm.get('emailGroup.password').errors?.required"
-                  >Password is required.</span
-                >
-                <span *ngIf="signUpForm.get('emailGroup').errors?.match"
-                  >Passwords do not match.</span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="text-center">
-            <button
-              type="submit"
-              class="btn btn-success"
-              [disabled]="!signUpForm.valid"
-            >
-              Create Account
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div> -->

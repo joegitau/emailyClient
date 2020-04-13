@@ -1,1 +1,32 @@
-<p>signin works!</p>
+<div class="row mt-5">
+  <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+    <div class="card">
+      <div class="card-body px-lg-5 py-lg-5">
+        <div class="text-center text-muted mb-4">
+          <small>Sign in</small>
+        </div>
+        <form [formGroup]='signinForm' (ngSubmit)='onSignin()'>
+          <app-input label="Username" inputType="text"
+                     placeholder="username"
+                     [control]="signinForm.get('username')"
+          ></app-input>
+          <app-input label="Password" inputType="password"
+                     placeholder="password"
+                     [control]="signinForm.get('password')"
+          ></app-input>
+          <div class="text-center mt-3 form-errors" *ngIf="signinForm?.errors">
+            <span *ngIf="signinForm?.errors.incorrectCreds">Invalid login info.</span>
+          </div>
+          <div class="text-center mt-4">
+            <button class="btn btn-success" type="submit" [disabled]="!signinForm.valid">Sign In</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

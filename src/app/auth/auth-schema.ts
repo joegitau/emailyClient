@@ -16,3 +16,13 @@ export interface SignedinRes {
   authenticated: boolean;
   username: string;
 }
+
+export interface SigninCreds {
+  username: string;
+  password?: string;
+}
+
+export interface SigninRes{
+  username: string;
+  authenticated: boolean;
+}

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { UsernameRes, SignupCreds, SignupRes, SignedinRes } from './auth-schema';
+import { UsernameRes, SignupCreds, SignupRes, SignedinRes, SigninCreds, SigninRes } from './auth-schema';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,11 @@ export class AuthService {
   checkAuth(): Observable<SignedinRes> {
     return this.http.get<SignedinRes>(`${this.BASE_URL}/signedin`)
       .pipe(tap(({ authenticated}) => this.signedin$.next(authenticated)));
+  }
+
+  signin(creds: any): Observable<SigninRes> {
+    return this.http.post<SigninRes>(`${this.BASE_URL}/signin`, creds)
+      .pipe(tap(() => this.signedin$.next(true)));
   }
 
   signout(): Observable<{}> {

@@ -3,18 +3,17 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AuthModule } from './auth/auth.module';
-import { SharedModule } from './shared/shared.module';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { ErrorInterceptorService } from './interceptors/error-interceptor.service';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
+import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,

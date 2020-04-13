@@ -8,7 +8,6 @@ import { AuthService } from '../auth/auth.service';
 })
 export class NavBarComponent implements OnInit {
   signedin = false;
-  user: any;
 
   constructor(private authService: AuthService) {}
 
