@@ -4,7 +4,8 @@
   </h5>
   <ng-container *ngIf="signedin">
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark" routerLink="/inbox" routerLinkActive="active">Inbox</a>
+      <a class="p-2 text-dark" routerLink="/inbox">{{ username }}</a>
+      <!-- <a class="p-2 text-dark" routerLink="/inbox" routerLinkActive="active">Inbox</a> -->
       <a class="p-2 text-dark" routerLink="/signout" routerLinkActive="active">Sign Out</a>
     </nav>
   </ng-container>

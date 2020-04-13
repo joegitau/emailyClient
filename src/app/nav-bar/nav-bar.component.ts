@@ -7,6 +7,7 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
+  username: string;
   signedin = false;
 
   constructor(private authService: AuthService) {}
@@ -14,7 +15,7 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
     this.authService.signedin$.subscribe(status => this.signedin = status);
 
-    this.authService.checkAuth().subscribe(() => ({}));
+    this.authService.checkAuth().subscribe(({ username }) => this.username = username);
   }
 
 }
