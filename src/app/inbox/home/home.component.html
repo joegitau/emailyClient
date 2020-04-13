@@ -1,13 +1,8 @@
 <div class="row mt-4">
-  <div class="col-sm-12 col-md-4" *ngIf="emails.length > 0; else noEmails">
+  <div class="col-sm-12 col-md-4" *ngIf="emails">
     <div class="list-group" *ngFor="let email of emails">
       <app-email-list [email]="email"></app-email-list>
     </div>
-    <ng-template #noEmails>
-      <div class="text-center mt-4">
-        <h5>No Emails found.</h5>
-      </div>
-    </ng-template>
   </div>
 
   <div class="col-sm-12 col-md-8">
