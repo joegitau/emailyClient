@@ -11,7 +11,7 @@ import { UsernameRes, SignupCreds, SignupRes, SignedinRes, SigninRes } from './a
 export class AuthService {
   private BASE_URL = 'https://api.angular-email.com/auth';
 
-  signedin$ = new BehaviorSubject(false);
+  signedin$ = new BehaviorSubject(null);
 
   constructor(private http: HttpClient) { }
 
