@@ -1,11 +1,15 @@
 <div class="row mt-4">
-  <div class="col-sm-12 col-md-4" *ngIf="emails">
-    <div class="list-group" *ngFor="let email of emails">
-      <app-email-list [email]="email"></app-email-list>
+  <div class="col-sm-12 col-md-4">
+    <div class="compose mb-2">
+      <app-email-create></app-email-create>
+    </div>
+    <div class="email-list" *ngIf="emails">
+      <div class="list-group" *ngFor="let email of emails">
+        <app-email-list [email]="email"></app-email-list>
+      </div>
     </div>
   </div>
-
   <div class="col-sm-12 col-md-8">
-    <!-- email content -->
+    <router-outlet></router-outlet>
   </div>
 </div>

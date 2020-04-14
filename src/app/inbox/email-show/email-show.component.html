@@ -1,1 +1,9 @@
-<p>email-show works!</p>
+<div class="card" *ngIf="email">
+  <div class="card-header">
+    <small>{{ email.from }}</small>
+    <h4 class="title">{{ email.subject }}</h4>
+  </div>
+  <div class="card-body">
+    {{ email.text }}
+  </div>
+</div>

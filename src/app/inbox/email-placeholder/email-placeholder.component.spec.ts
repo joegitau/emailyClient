@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmaiReplyComponent } from './emai-reply.component';
+import { EmailPlaceholderComponent } from './email-placeholder.component';
 
-describe('EmaiReplyComponent', () => {
-  let component: EmaiReplyComponent;
-  let fixture: ComponentFixture<EmaiReplyComponent>;
+describe('EmailPlaceholderComponent', () => {
+  let component: EmailPlaceholderComponent;
+  let fixture: ComponentFixture<EmailPlaceholderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmaiReplyComponent ]
+      declarations: [ EmailPlaceholderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmaiReplyComponent);
+    fixture = TestBed.createComponent(EmailPlaceholderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
