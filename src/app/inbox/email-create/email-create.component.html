@@ -1,1 +1,12 @@
-<button class="btn btn-compose btn-lg btn-block">Compose</button>
+<button class="btn btn-compose btn-lg btn-block"
+        (click)="toggleModal=true"
+        data-toggle="modal"
+        data-target="#emailModal">
+  Compose</button>
+<app-modal *ngIf="toggleModal">
+  <h4 modalTitle>Modal Title</h4>
+  <p>Modal content</p>
+  <div modalFooter>
+    <button class="btn btn-primary"></button>
+  </div>
+</app-modal>

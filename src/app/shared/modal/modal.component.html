@@ -1,0 +1,37 @@
+<div class="modal fade" id="emailModal" role="dialog" (click)="onDismiss()">
+  <div class="modal-dialog" (click)="$event.stopPropagation()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="onDismiss()">&times;</button>
+        <ng-content select="[modalTitle]"></ng-content>
+      </div>
+      <div class="modal-body">
+        <ng-content></ng-content>
+      </div>
+      <div class="modal-footer default-footer">
+        <button type="button" class="btn btn-default" (click)="onDismiss()">Close</button>
+      </div>
+      <div class="modal-footer">
+        <ng-content select="[modalFooter]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="modal" id="emailModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        Modal body..
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,11 @@
+.modal-footer:empty {
+  display: none;
+}
+
+.default-footer {
+  display: none;
+}
+
+.modal-footer:empty + .default-footer {
+  display: block;
+}
