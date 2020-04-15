@@ -6,13 +6,18 @@ import { EmailShowComponent } from './email-show/email-show.component';
 import { EmailCreateComponent } from './email-create/email-create.component';
 import { EmailReplyComponent } from './email-reply/email-reply.component';
 import { EmailPlaceholderComponent } from './email-placeholder/email-placeholder.component';
+import { EmailResolverService } from './email-resolver.service';
 
 const routes: Routes = [
   {
     path: '', component: HomeComponent,
     children: [
       { path: '', component: EmailPlaceholderComponent, pathMatch: 'full' },
-      { path: ':id', component: EmailShowComponent },
+      {
+        path: ':id',
+        resolve: { email: EmailResolverService },
+        component: EmailShowComponent
+      },
     ]
   }
 ];
