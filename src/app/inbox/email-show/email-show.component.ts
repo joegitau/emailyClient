@@ -18,6 +18,8 @@ export class EmailShowComponent implements OnInit {
     //   .pipe(switchMap(params => this.emailService.getEmail(params.get('id'))))
     //   .subscribe(email => this.email = email);
 
+    this.email = this.route.snapshot.data.email; // optional
+
     this.route.data.subscribe(data => this.email = data.email);
   }
 

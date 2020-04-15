@@ -1,9 +1,12 @@
 <div class="card">
   <div class="card-header">
-    <small>{{ email.from }}</small>
     <h4 class="title">{{ email.subject }}</h4>
   </div>
   <div class="card-body">
-    {{ email.text }}
+    <p class="text-muted">From: <small>{{ email.from }}</small></p>
+    <p class="text-muted">To: <small>{{ email.to }}</small></p>
+    <hr>
+    <p class="card-text" [innerHTML]="email.html">
+    </p>
   </div>
 </div>

@@ -1,0 +1,16 @@
+@import '../../../styles.scss';
+
+.card-plain {
+  background: none;
+  border: none;
+  text-align: center;
+
+  .notfound-placeholder {
+    margin-top: 10%;
+
+    .notfound-icon {
+      font-size: 10rem;
+    }
+  }
+}
+
