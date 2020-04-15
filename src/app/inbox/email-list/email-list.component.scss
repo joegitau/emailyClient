@@ -1,11 +1,13 @@
-@import '../../app.component.scss';
+@import '../../../styles.scss';
 
 .active {
   background: $secondary-bg;
-  border-color: $secondary-bg;;
+  border-color: $secondary-bg;
 }
 
 .list-group-item {
+  border: none;
+  border-radius: 0;
 
   &:hover {
     background: $primary-bg;

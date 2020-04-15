@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+$primary-color: #525f7f;
+$secondary-color: #172b4d;
+$primary-bg: #5603ad;
+$secondary-bg: #172b4d;
+$tertiary-bg: #8965e0;
+$alt-bg: #f4f5f7;
+$error-color: #e31837;
+$primary-font: 'Comic Neue', cursive;
+
+body {
+  background: $alt-bg;
+  color: $primary-color;
+  font-family: $primary-font;
+}

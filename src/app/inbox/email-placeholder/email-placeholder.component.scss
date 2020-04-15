@@ -1,0 +1,16 @@
+@import '../../../styles.scss';
+
+.card-plain {
+  background: none;
+  border: none;
+  text-align: center;
+
+  .email-placeholder {
+    margin-top: 10%;
+
+    .email-icon {
+      font-size: 10rem;
+    }
+  }
+}
+
