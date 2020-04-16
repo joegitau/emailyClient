@@ -1,12 +1,18 @@
-<div class="row mb-2">
-  <!-- <label>{{ label }}</label> -->
-  <input [type]="inputType" class="form-control"
+<div class="row mb-2 px-3">
+  <label>{{ label }}</label>
+  <input *ngIf="controlType==='input'"
+         [type]="inputType" class="form-control"
          [formControl]="control"
          [placeholder]="placeholder"
          [ngClass]="{ 'is-invalid': (control.touched || control.dirty) && !control.valid }"
   >
+  <textarea *ngIf="controlType==='textarea'" class="form-control"
+            [formControl]="control"
+            [ngClass]="{ 'is-invalid': (control.touched || control.dirty) && !control.valid }"
+  ></textarea>
   <div class="invalid-feedback">
-    <span *ngIf="control.errors?.required">{{ label }} is required</span>
+    <span *ngIf="control.errors?.required">{{ label }} is required.</span>
+    <span *ngIf="control.errors?.email">Please provide a valid email.</span>
     <span *ngIf="control.errors?.pattern">Should contain only alphanumeric characters (a - z / 0 - 9).</span>
     <span *ngIf="control.errors?.minlength">Must have min length of 3 characters.</span>
     <span *ngIf="control.errors?.nonUniqueUsername">Username is not available.</span>

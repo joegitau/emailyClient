@@ -1,0 +1,22 @@
+<form [formGroup]="emailForm">
+ <app-input [control]="emailForm.get('to')"
+            placeholder=""
+            label="To"
+            inputType="email"
+  ></app-input>
+  <app-input [control]="emailForm.get('from')"
+            placeholder=""
+            label="From"
+            inputType="email"
+  ></app-input>
+  <app-input [control]="emailForm.get('subject')"
+            placeholder=""
+            label="Subject"
+            inputType="text"
+  ></app-input>
+  <app-input controlType="textarea"
+            [control]="emailForm.get('text')"
+            label="Content"
+  ></app-input>
+  <button class="btn btn-secondary">Send</button>
+</form>

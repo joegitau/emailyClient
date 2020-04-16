@@ -11,6 +11,7 @@ import { UsernameRes, SignupCreds, SignupRes, SignedinRes, SigninRes } from './a
 export class AuthService {
   private BASE_URL = 'https://api.angular-email.com/auth';
 
+  username = '';
   signedin$ = new BehaviorSubject(null);
 
   constructor(private http: HttpClient) { }
@@ -22,18 +23,27 @@ export class AuthService {
   signup(credentials: SignupCreds): Observable<SignupRes> {
     return this.http.post<SignupRes>(`${this.BASE_URL}/signup`, credentials)
       .pipe(
-        tap(() => this.signedin$.next(true))
+        tap(({ username }) => {
+          this.signedin$.next(true);
+          this.username = username;
+        })
       );
   }
 
   checkAuth(): Observable<SignedinRes> {
     return this.http.get<SignedinRes>(`${this.BASE_URL}/signedin`)
-      .pipe(tap(({ authenticated }) => this.signedin$.next(authenticated)));
+      .pipe(tap(({ authenticated, username }) => {
+        this.signedin$.next(authenticated);
+        this.username = username;
+      }));
   }
 
   signin(creds: any): Observable<SigninRes> {
     return this.http.post<SigninRes>(`${this.BASE_URL}/signin`, creds)
-      .pipe(tap(() => this.signedin$.next(true)));
+      .pipe(tap(({ username }) => {
+        this.signedin$.next(true);
+        this.username = username;
+      }));
   }
 
   signout(): Observable<{}> {

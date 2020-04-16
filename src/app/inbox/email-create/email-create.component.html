@@ -3,10 +3,7 @@
         data-toggle="modal"
         data-target="#emailModal">
   Compose</button>
-<app-modal *ngIf="toggleModal" (dismiss)="toggleModal(false)">
-  <h4 modalTitle>Modal Title</h4>
-  <p>Modal content</p>
-  <div modalFooter>
-    <button class="btn btn-primary"></button>
-  </div>
+<app-modal *ngIf="showModal" (dismiss)="toggleModal(false)">
+  <h5 class="modal-title" modalTitle> Compose</h5>
+  <app-email-form [email]="email"></app-email-form>
 </app-modal>
