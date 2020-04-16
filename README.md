@@ -1,27 +1,21 @@
 # Emailyclient
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
+EmailyClient aims to mimick an Email Client, most notably Outlook - both on a visual and functional capacity.
+It allows a user to <bold>Signup/ Signin</bold> to the application, then ideally <bold>Send</bold> and <bold>Receive</bold> and <bold>Reply</bold> to emails in real-time.
 
-## Development server
+## About
+It is a fullstack* application that uses Angular 2 (v.9.0.1) for the front-end and an OpenSource API for the backend.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Notable applications
+ - Feature Modules     -> Advanced modularity + lazy loading 
+ - Reusable Components -> component communication using `Input, Output, EventEmiiters, Services`...
+ - Validation          -> Async Validation as well as custom Reactive Forms Validation, e.g - matching fields
+ - Resolvers           -> Resolve incomming emails
+ - Interceptors        -> Http Errors and Authentication
+ - Modals              -> adopting `ElementRef` 
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Clone the project, `npm i` and finally, `ng serve`
