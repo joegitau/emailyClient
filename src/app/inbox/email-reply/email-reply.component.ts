@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 import { EmailService } from '../email.service';
 import { Email } from '../email-schema';
@@ -8,7 +8,7 @@ import { Email } from '../email-schema';
   templateUrl: './email-reply.component.html',
   styleUrls: ['./email-reply.component.scss']
 })
-export class EmailReplyComponent implements OnInit {
+export class EmailReplyComponent implements OnChanges {
   @Input() email: Email;
 
   showModal = false;
@@ -16,7 +16,7 @@ export class EmailReplyComponent implements OnInit {
 
   constructor(private emailService: EmailService) { }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     const { to, from, subject, text } = this.email;
 
     this.email = {
