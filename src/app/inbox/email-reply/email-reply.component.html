@@ -1,1 +1,9 @@
-<p>emai-reply works!</p>
+<button class="btn btn-compose"
+        (click)="toggleModal(true)"
+        data-toggle="modal"
+        data-target="#emailModal"
+>Reply</button>
+<app-modal *ngIf="showModal" (dismiss)="toggleModal(false)">
+  <h5 class="modal-title" modalTitle>Reply</h5>
+  <app-email-form [email]="email" (emailSubmit)="onEmailReply($event)"></app-email-form>
+</app-modal>

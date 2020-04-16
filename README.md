@@ -1,6 +1,6 @@
 # Emailyclient
 
-EmailyClient aims to mimick an Email Client, most notably Outlook - both on a visual and functional capacity.
+EmailyClient aims to mimic an Email Client, most notably Outlook - both on a visual and functional capacity.
 It allows a user to <bold>Signup/ Signin</bold> to the application, then ideally <bold>Send</bold> and <bold>Receive</bold> and <bold>Reply</bold> to emails in real-time.
 
 ## About

@@ -1,6 +1,7 @@
 <div class="card">
-  <div class="card-header">
+  <div class="card-header d-flex justify-content-between">
     <h4 class="title">{{ email.subject }}</h4>
+    <app-email-reply [email]="email"></app-email-reply>
   </div>
   <div class="card-body">
     <p class="text-muted">From: <small>{{ email.from }}</small></p>

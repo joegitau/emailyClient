@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { EmailSummary, Email } from './email-schema';
+import { EmailSummary, Email, EmailRes } from './email-schema';
 
 @Injectable({
   providedIn: 'root'
@@ -20,4 +20,7 @@ export class EmailService {
     return this.http.get<Email>(`${this.BASE_URL}/${id}`);
   }
 
+  create(email: Email): Observable<EmailRes> {
+    return this.http.post<EmailRes>(`${this.BASE_URL}`, email);
+  }
 }

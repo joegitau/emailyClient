@@ -12,3 +12,7 @@ export interface Email {
   from: string;
   html: string;
 }
+
+export interface EmailRes {
+  status: string;
+}

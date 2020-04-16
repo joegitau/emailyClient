@@ -4,6 +4,6 @@
         data-target="#emailModal">
   Compose</button>
 <app-modal *ngIf="showModal" (dismiss)="toggleModal(false)">
-  <h5 class="modal-title" modalTitle> Compose</h5>
-  <app-email-form [email]="email"></app-email-form>
+  <h5 class="modal-title" modalTitle>Compose</h5>
+  <app-email-form [email]="email" (emailSubmit)="onEmailCreate($event)"></app-email-form>
 </app-modal>
