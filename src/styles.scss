@@ -11,4 +11,8 @@ body {
   background: $alt-bg;
   color: $primary-color;
   font-family: $primary-font;
+
+  a {
+    text-decoration: none;
+  }
 }

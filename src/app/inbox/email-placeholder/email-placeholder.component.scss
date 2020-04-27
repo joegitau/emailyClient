@@ -1,16 +1,18 @@
 @import '../../../styles.scss';
 
-.card-plain {
-  background: none;
-  border: none;
-  text-align: center;
+.mail-content-body {
+  display: flex;
+  background-color: #fff;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
   .email-placeholder {
-    margin-top: 10%;
 
     .email-icon {
-      font-size: 10rem;
+      font-size: 5rem;
     }
   }
 }
-

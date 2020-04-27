@@ -1,18 +1,38 @@
-<div class="row mt-4">
-  <div class="col-sm-12 col-md-4">
-    <div class="compose mb-2">
+<div class="mail-sidebar">
+  <div class="mail-sidebar-body p-4 overflow-hidden">
+    <div class="compose">
       <app-email-create></app-email-create>
     </div>
-    <div class="email-list" *ngIf="emails">
-      <div class="list-group" *ngFor="let email of emails">
-        <app-email-list [email]="email"></app-email-list>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-12 col-md-8">
-    <div class="email-body">
-      <router-outlet></router-outlet>
+    <div class="px-2 py-3">
+      <nav class="nav nav-sidebar tx-13">
+        <a routerLink="/inbox" routerLinkActive><i class="fas fa-envelope-open-text mr-1"></i> Inbox</a>
+        <a routerLink="/" routerLinkActive><i class="fas fa-sticky-note mr-1"></i> Notes</a>
+        <a routerLink="/" routerLinkActive><i class="fas fa-tasks mr-1"></i> Todos</a>
+        <a routerLink="/" routerLinkActive><i class="fas fa-temperature-low mr-1"></i> Forecast</a>
+      </nav>
     </div>
   </div>
 </div>
+<div class="mail-group">
+  <div class="mail-group-header">
+    <i class="fas fa-search feather search-icon"></i>
+    <div class="search-form">
+      <input type="text" class="form-control" placeholder="Search mail">
+    </div>
+  </div>
+  <div class="mail-group-body" *ngIf="emails" >
+    <div class="p-4 d-flex justify-content-between align-items-center">
+      <h6 class="text-uppercase font-weight-bold mb-0">Inbox</h6>
+      <span><i class="fas fa-bell mr-1"></i> {{ emails.length }}</span>
+      <i class="fas fa-sync-alt pointer"></i>
+    </div>
+    <ul class="mail-list" *ngFor="let email of emails">
+      <app-email-list [email]="email"></app-email-list>
+    </ul>
+  </div>
+</div>
+<div class="mail-content">
+  <router-outlet></router-outlet>
+</div>
+
 

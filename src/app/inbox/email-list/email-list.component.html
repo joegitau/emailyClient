@@ -1,7 +1,10 @@
-<a  class="list-group-item" [routerLink]="email.id" routerLinkActive="active">
-  <div class="d-flex w-100 justify-content-between">
-    <h5 class="mb-1">{{ email.subject }}</h5>
-    <small>3 days ago</small>
+<li class="media" [routerLink]="email.id" routerLinkActive="active">
+  <div class="avatar"><span class="avatar-initial rounded-circle bg-indigo">d</span></div>
+  <div class="media-body p-4">
+    <div class="tx-color-03 d-flex align-items-center justify-content-between mg-b-2">
+      <small>{{ email.from }}</small>
+      <i class="fas fa-star text-warning"></i>
+    </div>
+    <h6 class="tx-13">{{ email.subject }}</h6>
   </div>
-  <small>{{ email.from }}</small>
-</a>
+</li>
